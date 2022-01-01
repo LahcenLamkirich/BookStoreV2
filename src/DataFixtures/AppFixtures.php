@@ -45,7 +45,7 @@ class AppFixtures extends Fixture
         for($i = 0 ; $i < 50 ; $i++){
             $livre = new Livre() ;
             $livre->setIsbn($faker->isbn13);
-            $livre->setTitre($faker->title) ;
+            $livre->setTitre($faker->word) ;
             $livre->setNombrePages($faker->numberBetween($min = 50, $max = 9000));
             $livre->setDateDeParution($faker->dateTimeBetween('-15 years', 'now'));
             $livre->setNote($faker->numberBetween(0,20));
@@ -59,7 +59,7 @@ class AppFixtures extends Fixture
 
         // Ajout de user : 
         $users = [] ;
-        for($i = 0 ; $i < 50 ; $i++){
+        for($i = 0 ; $i < 10 ; $i++){
             $user = new User() ;
             $user->setNom($faker->name) ;
             $user->setRole("USER") ;
