@@ -77,4 +77,9 @@ class Genre
 
         return $this;
     }
+
+    // public function __toString()
+    // {
+    //     return $this->string_filed_entity;
+    // }
 }
