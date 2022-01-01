@@ -17,6 +17,7 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/adminbookstore", name="admin")
      */
+    
     public function index(): Response
     {
         return parent::index();
@@ -27,7 +28,7 @@ class DashboardController extends AbstractDashboardController
         return Dashboard::new()
             ->setTitle('Bookstore');
     }
-
+  
     public function configureMenuItems(): iterable
     {
         // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
