@@ -17,8 +17,8 @@ class LivreType extends AbstractType
             ->add('nombre_pages')
             ->add('date_de_parution')
             ->add('note')
-            ->add('auteurs')
-            ->add('genres')
+            // ->add('auteurs')
+            // ->add('genres')
         ;
     }
 
