@@ -126,8 +126,8 @@ class Auteur
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->nom_prenom;
-    }
+    // public function __toString()
+    // {
+    //     return $this->nom_prenom;
+    // }
 }

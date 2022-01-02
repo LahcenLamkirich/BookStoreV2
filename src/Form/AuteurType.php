@@ -16,7 +16,7 @@ class AuteurType extends AbstractType
             ->add('sexe')
             ->add('date_naissance')
             ->add('nationalite')
-            ->add('livres')
+            // ->add('livres')
         ;
     }
 
