@@ -16,13 +16,7 @@ class AuteurType extends AbstractType
             ->add('sexe')
             ->add('date_naissance')
             ->add('nationalite')
-            ->add('livres', 'entity', array(
-                'class' => 'App\Entity\Livre',
-                'property' => 'titre',
-                'multiple' => true,
-                'expanded' => false
-                )
-            )
+            ->add('livres')
         ;
     }
 
