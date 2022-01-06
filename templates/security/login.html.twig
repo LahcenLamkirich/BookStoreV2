@@ -3,9 +3,9 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-
+{# 
 <form method="post">
-    {% if error %}
+    {# {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
@@ -29,12 +29,12 @@
         Sign in
     </button>
 
-</form>
+</form> #}
 
 {# Statring from Here Bruh #}
 
-{# <form method="post"> #}
-    {# {% if error %}
+<form method="post">
+   {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
@@ -42,8 +42,8 @@
         <div class="mb-3">
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
-    {% endif %} #}
-{#  
+    {% endif %} 
+
     <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
         <div class="loginbackground box-background--white padding-top--64">
@@ -88,31 +88,31 @@
                 <span class="padding-bottom--15"> Sign in to your account </span>
                 <form id="stripe-login">
                     <div class="field padding-bottom--24">
-                    <label for="email"> Email </label>
+                        <label for="inputEmail"> Email </label>
                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
                     </div>
                     <div class="field padding-bottom--24">
                     <div class="grid--50-50">
-                        <label for="password"> Password </label>
+                        <label for="inputPassword"> Password </label>
+                    </div>                    
+                      <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     </div>
-                    {# <input type="password" name="password"> #}
-                    {#  
-                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                    </div>
-                    
+                        <input type="hidden" name="_csrf_token"
+                                value="{{ csrf_token('authenticate') }}"
+                        >
                     <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
                     <label for="checkbox">
                         <input type="checkbox" name="checkbox"> Stay signed in for a week
                     </label>
                     </div>
-                    <div class="field padding-bottom--24">
-                    <input type="submit" name="submit" value="Continue">
+                        <div class="field padding-bottom--24">
+                        <input type="submit" name="submit" value="Continue">
                     </div>
-                </form>
+
                 </div>
             </div>
             <div class="footer-link padding-top--24">
-                <span>Don't have an account? <a href=""> Sign up </a></span>
+                <span>Don't have an account? <a href="http://127.0.0.1:8000/register"> Sign up </a></span>
                 </div>
             </div>
             </div>
@@ -120,5 +120,4 @@
         </div>
     </div>
 </form>
-#}
 {% endblock %}
