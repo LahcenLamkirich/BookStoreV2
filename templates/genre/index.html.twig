@@ -3,7 +3,15 @@
 {% block title %}Genre index{% endblock %}
 
 {% block body %}
-    <h1>Genre index</h1>
+
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+    
+    <h1> Genre index </h1>
 
     <table class="table">
         <thead>
@@ -32,4 +40,5 @@
     </table>
 
     <a href="{{ path('genre_new') }}">Create new</a>
+
 {% endblock %}
