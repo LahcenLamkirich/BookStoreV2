@@ -75,7 +75,7 @@ body {
   border-right: 5px solid #fff;
   white-space: nowrap;
   margin: 0 auto;
-  left-spacing:5px;
+  letter-spacing: 5px;
   animation: animation1 2.5s steps(40, end),
              animation2 .5s step-end infinite;
 }
