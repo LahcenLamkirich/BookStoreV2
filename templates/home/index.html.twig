@@ -3,7 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
+{# <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
@@ -13,9 +13,157 @@
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Lahcen Lamkirich/Desktop/ENSET S3/XML_FRAMWORKS/Projet_Symfony/bookstore/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Lahcen Lamkirich/Desktop/ENSET S3/XML_FRAMWORKS/Projet_Symfony/bookstore/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+        <li> Your controller at <code><a href="{{ 'C:/Users/Lahcen Lamkirich/Desktop/ENSET S3/XML_FRAMWORKS/Projet_Symfony/bookstore/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
+        <li> Your template at <code><a href="{{ 'C:/Users/Lahcen Lamkirich/Desktop/ENSET S3/XML_FRAMWORKS/Projet_Symfony/bookstore/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
     </ul>
-</div>
+</div> #}
+
+<style>
+        body {
+            margin : 0 ; 
+            padding: 0;
+            font-family: poppins;
+            font-weight: 400;
+            color : #fff ;
+            line-height: 1.5;
+        }
+        .banner {
+            height: 100vh;
+            width: 100%;
+            background-image: url(3.jpg); 
+            -webkit-background-size : cover ; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+
+        .banner ul{
+            list-style: none;
+            color: #fff ; 
+        }
+
+        .logo {
+            float: left;
+            width: 45%;
+            text-transform: uppercase;
+        }
+        .logo h2 {
+            padding-left: 60px;
+            color:#fff ;
+        }
+        .menu-area {
+            width: 55%;
+            display: block;
+            overflow: hidden;
+        }
+        .menu-area ul li:hover {
+            color: cyan;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .banner ul li {
+            color : #fff ;
+            float: left;
+            font-size: 16px;
+            display: block;
+            padding:5px 18px;
+        }
+        .banner-text {
+            width: 600px ;
+            display: block;
+            float: none;
+            margin: 0 auto;
+            position: relative;
+            top: 120px;
+            text-align: center;
+        }
+
+        .banner-text h1 {
+            font-size: 45px;
+            color: #fff;
+            text-transform: uppercase;
+            overflow: hidden;
+            border-right: 5px solid #fff;
+            white-space: nowrap;
+            margin: 0 auto;
+            left-spacing:5px;
+            animation: animation1 2.5s steps(40, end),
+                       animation2 .5s step-end infinite;
+        }
+        .banner-text p {
+            color: rgba(255,255,255,0.7) ;
+            font-size: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .banner-text a {
+            color: #fff;
+            padding: 10px 30px;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        .banner-text a:hover {
+            background: #fff ; 
+            color: #000;
+            transition: 1s; 
+        }
+        @keyframes animation1 {
+            from{
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        @keyframes animation2 {
+            from, to{
+                border-color: transparent;
+            } 50%{border-color: #fff}
+        }
+</style>
+
+<body>
+  <header class="banner">
+                <nav class="menu">
+                    <div class="logo">
+                           <h2> Book Store </h2>                 
+                    </div>
+                    <div class="menu-area">
+                        <ul>
+                            <li>Home</li>
+                            <li>Auteurs</li>
+                            <li>Livres</li>
+                            <li>Genres</li>
+                            <li>Sign In</li>
+                            <li>Sign Up</li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="banner-text">
+                    <p> Welcome to the Book Store website </p>
+                    <h1> BOOK STORE </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ratione labore sit, dolorem vel et maxime? Pariatur incidunt, perspiciatis, enim hic vero ab reprehenderit assumenda, quod consequatur deserunt dicta quis.</p>
+                    <a href="">Learn More</a>
+                </div>
+    </header>
+       
+</body>
 
 {% endblock %}
