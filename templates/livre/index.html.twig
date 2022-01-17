@@ -3,188 +3,212 @@
 {% block title %}Livre index{% endblock %}
 
 {% block body %}
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+<style>
+.abs,
+h2:after,
+.cards .card figcaption,
+.cards .card:after,
+.news .card figcaption,
+.news .card:after,
+.news .article figcaption {
+  position: absolute;
+}
+.rel,
+h2,
+h2 strong,
+.cards .card,
+.news .card,
+.news .article {
+  position: relative;
+}
+.fix {
+  position: fixed;
+}
+.dfix {
+  display: inline;
+}
+.dib {
+  display: inline-block;
+}
+.db {
+  display: block;
+}
+.dn {
+  display: none;
+}
+.df,
+.cards,
+.news {
+  display: flex;
+}
+.dif {
+  display: inline-flex;
+}
+.dg {
+  display: grid;
+}
+.dig {
+  display: inline-grid;
+}
+.vm,
+h2,
+h2 strong,
+h2 span {
+  vertical-align: middle;
+}
+body {
+  background: #24282f;
+  font-family: 'Alegreya Sans';
+}
+.wrapper {
+  padding: 15px;
+}
+h2 {
+  padding: 10px;
+  padding-left: 25px;
+  color: #ccc;
+  margin: 0;
+}
+h2 strong {
+  z-index: 2;
+  background: #24282f;
+  padding: 4px 8px;
+}
+h2 span {
+  font-size: 0.7em;
+  color: #aaa;
+  margin-left: 10px;
+}
+h2:after {
+  content: '';
+  z-index: 1;
+  bottom: 50%;
+  margin-bottom: -2px;
+  height: 2px;
+  left: 0;
+  right: 0;
+  background: #373d47;
+}
+.cards,
+.news {
+  flex-flow: row wrap;
+}
+.cards .card,
+.news .card {
+  margin: 20px;
+  width: 180px;
+  height: 270px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: 0.3s;
+}
+.cards .card img,
+.news .card img {
+  width: 100%;
+  min-height: 100%;
+}
+.cards .card figcaption,
+.news .card figcaption {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  background: none;
+  color: #fff;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+.cards .card:after,
+.news .card:after {
+  content: '';
+  z-index: 10;
+  width: 200%;
+  height: 100%;
+  top: -90%;
+  left: -20px;
+  opacity: 0.1;
+  transform: rotate(45deg);
+  background: linear-gradient(to top, transparent, #fff 15%, rgba(255,255,255,0.5));
+  transition: 0.3s;
+}
+.cards .card:hover,
+.news .card:hover,
+.cards .card:focus,
+.news .card:focus,
+.cards .card:active,
+.news .card:active {
+  box-shadow: 0 8px 16px 3px rgba(0,0,0,0.6);
+  transform: translateY(-3px) scale(1.05) rotateX(15deg);
+}
+.cards .card:hover figcaption,
+.news .card:hover figcaption,
+.cards .card:focus figcaption,
+.news .card:focus figcaption,
+.cards .card:active figcaption,
+.news .card:active figcaption {
+  transform: none;
+}
+.cards .card:hover:after,
+.news .card:hover:after,
+.cards .card:focus:after,
+.news .card:focus:after,
+.cards .card:active:after,
+.news .card:active:after {
+  transform: rotate(25deg);
+  top: -40%;
+  opacity: 0.15;
+}
+.news .article {
+  overflow: hidden;
+  width: 350px;
+  height: 235px;
+  margin: 20px;
+}
+.news .article img {
+  width: 100%;
+  min-height: 100%;
+  transition: 0.2s;
+}
+.news .article figcaption {
+  font-size: 14px;
+  text-shadow: 0 1px 0 rgba(51,51,51,0.3);
+  color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 40px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background: rgba(6,18,53,0.6);
+  opacity: 0;
+  transform: scale(1.15);
+  transition: 0.2s;
+}
+.news .article figcaption h3 {
+  color: #3792e3;
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.news .article:hover img,
+.news .article:focus img,
+.news .article:active img {
+  filter: blur(3px);
+  transform: scale(0.97);
+}
+.news .article:hover figcaption,
+.news .article:focus figcaption,
+.news .article:active figcaption {
+  opacity: 1;
+  transform: none;
+}
 
-
-    body {
-        background: #DFC2F2;
-            background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
-            background-attachment: fixed;	
-            background-size: cover;
-        
-            }
-
-    #container{
-        box-shadow: 0 15px 30px 1px grey;
-        background: rgba(255, 255, 255, 0.90);
-        text-align: center;
-        border-radius: 5px;
-        overflow: hidden;
-        margin: 5em auto;
-        height: 350px;
-        width: 700px;
-    
-        
-    }
-
-
-
-    .product-details {
-        position: relative;
-        text-align: left;
-        overflow: hidden;
-        padding: 30px;
-        height: 100%;
-        float: left;
-        width: 40%;
-
-    }
-
-    #container .product-details h1{
-        font-family: 'Bebas Neue', cursive;
-        display: inline-block;
-        position: relative;
-        font-size: 30px;
-        color: #344055;
-        margin: 0;
-        
-    }
-
-    #container .product-details h1:before{
-        position: absolute;
-        content: '';
-        right: 0%; 
-        top: 0%;
-        transform: translate(25px, -15px);
-        font-family: 'Bree Serif', serif;
-        display: inline-block;
-        background: #ffe6e6;
-        border-radius: 5px;
-        font-size: 14px;
-        padding: 5px;
-        color: white;
-        margin: 0;
-        animation: chan-sh 6s ease infinite;
-
-    }
-
-    .hint-star {
-        display: inline-block;
-        margin-left: 0.5em;
-        color: gold;
-        width: 50%;
-    }
-
-
-    #container .product-details > p {
-    font-family: 'EB Garamond', serif;
-        text-align: center;
-        font-size: 18px;
-        color: #7d7d7d;
-        
-    }
-    .control{
-        position: absolute;
-        bottom: 20%;
-        left: 22.8%;
-        
-    }
-    .btn {
-
-        transform: translateY(0px);
-        transition: 0.3s linear;
-        background:  #809fff;
-        border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        color: #eee;
-        padding: 0;
-        margin: 0;
-        
-    }
-
-    .btn:hover{transform: translateY(-6px);
-        background: #1a66ff;}
-
-    .btn span {
-        font-family: 'Farsan', cursive;
-        transition: transform 0.3s;
-        display: inline-block;
-    padding: 10px 20px;
-        font-size: 1.2em;
-        margin:0;
-        
-    }
-    .btn .price, .shopping-cart{
-        background: #333;
-        border: 0;
-        margin: 0;
-    }
-
-    .btn .price {
-        transform: translateX(-10%); padding-right: 15px;
-    }
-
-    .btn .shopping-cart {
-        transform: translateX(-100%);
-    position: absolute;
-        background: #333;
-        z-index: 1;
-    left: 0;
-    top: 0;
-    }
-
-    .btn .buy {z-index: 3; font-weight: bolder;}
-
-    .btn:hover .price {transform: translateX(-110%);}
-
-    .btn:hover .shopping-cart {transform: translateX(0%);}
-
-
-
-    .product-image {
-        transition: all 0.3s ease-out;
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        height: 100%;
-        float: right;
-        width: 45%;
-        display: inline-block;
-    }
-
-    #container img {width: 100%;height: 100%;}
-
-    .info {
-        background: rgba(27, 26, 26, 0.9);
-        font-family: 'Bree Serif', serif;
-        transition: all 0.3s ease-out;
-        transform: translateX(-100%);
-        position: absolute;
-        line-height: 1.8;
-        text-align: left;
-        font-size: 105%;
-        cursor: no-drop;
-        color: #FFF;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-    }
-
-    .info h2 {text-align: center}
-    .product-image:hover .info{transform: translateX(0);}
-
-    .info ul li{transition: 0.3s ease;}
-    .info ul li:hover{transform: translateX(50px) scale(1.3);}
-
-    .product-image:hover img {transition: all 0.3s ease-out;}
-    .product-image:hover img {transform: scale(1.2, 1.2);}
-    </style>
+</style>
     {# <h1>Livre index</h1>
 
     <table class="table">
@@ -224,22 +248,6 @@
     <a href="{{ path('livre_new') }}">Create new</a> #}
 
 
-    <div id="container">	
-	
-	<div class="product-details">
-		
-	<h1 > CHRISTMAS TREE </h1>
-	<span class="hint-star star">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star-o" aria-hidden="true"></i>
-	</span>
-		
-			<p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
-
-		
 		
 {# <div class="control">
 	
@@ -250,26 +258,91 @@
  </button>
 	
 </div> #}
-			
-</div>
-	
-<div class="product-image">
-	
-	<img src="https://images.unsplash.com/photo-1606830733744-0ad778449672?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNocmlzdG1hcyUyMHRyZWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-	
 
-<div class="info">
-	<h2> Description</h2>
-	<ul>
-		<li><strong>Height : </strong>5 Ft </li>
-		<li><strong>Shade : </strong>Olive green</li>
-		<li><strong>Decoration: </strong>balls and bells</li>
-		<li><strong>Material: </strong>Eco-Friendly</li>
-		
-	</ul>
-</div>
-</div>
+<div class="wrapper">
+
+	<h2><strong>All Games<span>( 4 )</span></strong></h2>
+
+	<div class="cards">
+
+		<figure class="card">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/1.jpg" />
+
+			<figcaption>Dota 2</figcaption>
+
+		</figure>
+
+		<figure class="card">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/2.jpg" />
+
+			<figcaption>Stick Fight</figcaption>
+
+		</figure>
+
+		<figure class="card">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/3.jpg" />
+
+			<figcaption>Minion Masters</figcaption>
+
+		</figure>
+
+		<figure class="card">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/4.jpg" />
+
+			<figcaption>KoseBoz!</figcaption>
+
+		</figure>
+
+	</div>
+
+	<h2><strong>What's new?</strong></h2>
+
+	<div class="news">
+
+		<figure class="article">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/news1.jpg" />
+
+			<figcaption>
+
+				<h3>New Item</h3>
+
+				<p>
+
+					In today’s update, two heads are better than one, and three heads are better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre Magi makes its grand debut.
+
+				</p>
+
+			</figcaption>
+
+		</figure>
+
+		<figure class="article">
+
+			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/news2.png" />
+
+			<figcaption>
+
+				<h3>Update</h3>
+
+				<p>
+
+					Just in time for Lunar New Year and the Rat’s time in the cyclical place of honor, the Treasure of Unbound Majesty is now available.
+
+				</p>
+
+			</figcaption>
+
+		</figure>
+
+	</div>
 
 </div>
+
+</body>
 
 {% endblock %}
