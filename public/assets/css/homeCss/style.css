@@ -22,7 +22,7 @@ body {
     background-position: center;
     position: relative;
     z-index: 1;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 
 .banner::before {
@@ -39,11 +39,13 @@ body {
 .banner ul{
     list-style: none;
     color: #fff ; 
+    
 }
 
 .banner1 ul{
     list-style: none;
     color: black ; 
+    margin-left:700px;
 }
 .logo {
     margin-top: 10px;
@@ -97,8 +99,9 @@ body {
     float: left;
     font-size: 16px;
     display: block;
-    padding:5px 18px;
 }
+
+
 
 .banner-text {
     width: 600px ;
