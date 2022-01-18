@@ -16,6 +16,15 @@ body {
     position: relative;
     z-index: 1;
 }
+.banner1 {
+    height: 100vh;
+    width: 100%;
+    -webkit-background-size : cover ; 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
 
 .banner::before {
     content: '';
@@ -33,6 +42,10 @@ body {
     color: #fff ; 
 }
 
+.banner1 ul{
+    list-style: none;
+    color: black ; 
+}
 .logo {
     margin-top: 10px;
     float: left;
@@ -43,17 +56,32 @@ body {
     padding-left: 60px;
     color:#fff ;
 }
+.logo1 h2 {
+    margin-top : 20px;
+    font-weight: bold;
+    padding-left: 60px;
+    color:black ;
+}
 .menu-area {
     width: 50%;
     display: block;
     overflow: hidden;
 }
+
 .menu-area ul li:hover {
     color: cyan;
     background-color: #5469d4;
     transition: .5s;
     cursor: pointer;
 }
+
+/* .menu-area1 ul li:hover {
+    color: cyan;
+    background-color: #5469d4;
+    transition: .5s;
+    cursor: pointer;
+} */
+
 .banner ul li {
     margin-top: 10px;
     color : #fff ;
@@ -62,6 +90,16 @@ body {
     display: block;
     padding:5px 18px;
 }
+
+.banner1 ul li {
+    margin-top: 20px;
+    color : black ;
+    float: left;
+    font-size: 16px;
+    display: block;
+    padding:5px 18px;
+}
+
 .banner-text {
     width: 600px ;
     display: block;
@@ -106,6 +144,7 @@ body {
     color: #000;
     transition: 1s; 
 }
+
 @keyframes animation1 {
     from{
         width: 0;
@@ -114,6 +153,7 @@ body {
         width: 100%;
     }
 }
+
 @keyframes animation2 {
     from, to{
         border-color: transparent;

@@ -18,13 +18,14 @@ $color-form-highlight: #EEEEEE;
 }
 
 body {
-	padding:$base-spacing-unit;
+	
 	font-family:'Source Sans Pro', sans-serif;
 	margin:0;
 }
 
 h1,h2,h3,h4,h5,h6 {
 	margin:0;
+    color: black ;
 }
 
 .container {
@@ -92,49 +93,30 @@ h1,h2,h3,h4,h5,h6 {
 	&.asc::after {
 		content: '(asc)';
 	}
-	
 }
-    </style>
 
-    <h1>Auteur index</h1>
-{#     
-<div class="container">  
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom_prenom</th>
-                <th>Sexe</th>
-                <th>Date_naissance</th>
-                <th>Nationalite</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for auteur in auteurs %}
-            <tr>
-                <td>{{ auteur.id }}</td>
-                <td>{{ auteur.nomPrenom }}</td>
-                <td>{{ auteur.sexe }}</td>
-                <td>{{ auteur.dateNaissance ? auteur.dateNaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ auteur.nationalite }}</td>
-                <td>
-                    <a href="{{ path('auteur_show', {'id': auteur.id}) }}">show</a>
-                    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6"> no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-    <a href="{{ path('auteur_new') }}"> Create new </a> #}
+</style>
+
+{# ******************************************************************************************************************** #}
+     <header class="banner1">
+                <nav class="menu">
+                    <div class="logo1">
+                           <h2> Book Store </h2>                 
+                    </div>
+                    <div class="menu-area1">
+                        <ul>
+                            <a href="http://127.0.0.1:8000/home"><li>Home</li></a>
+                            <a href="http://127.0.0.1:8000/auteur"><li>Auteurs</li></a>
+                            <a href="http://127.0.0.1:8000/livre"><li>Livres</li></a>
+                            <a href="http://127.0.0.1:8000/genre"><li>Genres</li></a>
+                            <a href="http://127.0.0.1:8000/login"><li>Sign In</li></a>
+                            <a href="http://127.0.0.1:8000/register"><li>Sign Up</li></a>
+                        </ul>
+                    </div>
+                </nav>
+    </header>
 
 <div class="container">
-	
 	<div class="table">
 		<div class="table-header">
 			<div class="header__item"><a id="name" class="filter__link" href="#">Id</a></div>
@@ -153,7 +135,7 @@ h1,h2,h3,h4,h5,h6 {
 				<div class="table-data">{{auteur.sexe}}</div>
 				<div class="table-data">{{auteur.dateNaissance ? auteur.dateNaissance|date('Y-m-d') : '' }}</div>
 				<div class="table-data">{{auteur.nationalite}}</div>
-				<div class="table-data"><a href="{{ path('auteur_show', {'id': auteur.id}) }}">show</a></div>
+				<div class="table-data"><a class="show" href="{{ path('auteur_show', {'id': auteur.id}) }}"> show </a></div>
 			</div>
             {% endfor %}
 		</div>	
