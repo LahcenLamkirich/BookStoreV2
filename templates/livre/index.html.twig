@@ -209,55 +209,6 @@ h2:after {
 }
 
 </style>
-    {# <h1>Livre index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Isbn</th>
-                <th>Titre</th>
-                <th>Nombre_pages</th>
-                <th>Date_de_parution</th>
-                <th>Note</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for livre in livres %}
-            <tr>
-                <td>{{ livre.id }}</td>
-                <td>{{ livre.isbn }}</td>
-                <td>{{ livre.titre }}</td>
-                <td>{{ livre.nombrePages }}</td>
-                <td>{{ livre.dateDeParution ? livre.dateDeParution|date('Y-m-d') : '' }}</td>
-                <td>{{ livre.note }}</td>
-                <td>
-                    <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('livre_new') }}">Create new</a> #}
-
-
-		
-{# <div class="control">
-	
-	<button class="btn">
-	 <span class="price">$250</span>
-   <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-   <span class="buy">Get now</span>
- </button>
-	
-</div> #}
 
 <div class="wrapper">
 
@@ -279,48 +230,6 @@ h2:after {
         {% endfor %}
 
 	</div>
-
-	{# <h2><strong>What's new?</strong></h2> #}
-{# 
-	<div class="news">
-
-		<figure class="article">
-
-			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/news1.jpg" />
-
-			<figcaption>
-
-				<h3>New Item</h3>
-
-				<p>
-
-					In today’s update, two heads are better than one, and three heads are better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre Magi makes its grand debut.
-
-				</p>
-
-			</figcaption>
-
-		</figure>
-
-		<figure class="article">
-
-			<img src="https://mrreiha.keybase.pub/codepen/hover-fx/news2.png" />
-
-			<figcaption>
-
-				<h3>Update</h3>
-
-				<p>
-
-					Just in time for Lunar New Year and the Rat’s time in the cyclical place of honor, the Treasure of Unbound Majesty is now available.
-
-				</p>
-
-			</figcaption>
-
-		</figure>
-
-	</div> #}
 
 </div>
 
