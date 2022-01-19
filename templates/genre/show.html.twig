@@ -3,24 +3,138 @@
 {% block title %}Genre{% endblock %}
 
 {% block body %}
-    <h1>Genre</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ genre.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ genre.nom }}</td>
-            </tr>
-        </tbody>
-    </table>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 
-    <a href="{{ path('genre_index') }}">back to list</a>
+$base-spacing-unit: 24px;
+$half-spacing-unit: $base-spacing-unit / 2;
 
-    <a href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
+$color-alpha: #1772FF;
+$color-form-highlight: #EEEEEE;
 
-    {{ include('genre/_delete_form.html.twig') }}
+*, *:before, *:after {
+	box-sizing:border-box;
+}
+
+body {
+	
+	font-family:'Source Sans Pro', sans-serif;
+	margin:0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin:0;
+    color: black ;
+}
+
+.container {
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	min-height:50vh;
+}
+
+.table {
+	width:100%;
+	border:1px solid $color-form-highlight;
+}
+
+.table-header {
+	display:flex;
+	width:100%;
+	background:#000;
+	padding:($half-spacing-unit * 1.5) 0;
+}
+
+.table-row {
+	display:flex;
+	width:100%;
+	padding:($half-spacing-unit * 1.5) 0;
+	
+	&:nth-of-type(odd) {
+		background:$color-form-highlight;
+	}
+}
+
+.table-data, .header__item {
+	flex: 1 1 20%;
+	text-align:center;
+}
+
+.header__item {
+	text-transform:uppercase;
+}
+
+.filter__link {
+	color:white;
+	text-decoration: none;
+	position:relative;
+	display:inline-block;
+	padding-left:$base-spacing-unit;
+	padding-right:$base-spacing-unit;
+	
+	&::after {
+		content:'';
+		position:absolute;
+		right:-($half-spacing-unit * 1.5);
+		color:white;
+		font-size:$half-spacing-unit;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	&.desc::after {
+		content: '(desc)';
+	}
+
+	&.asc::after {
+		content: '(asc)';
+	}
+
+}
+    hr.solid {
+        border-top: 3px solid #bbb;
+    }
+</style>
+    <header class="banner1">
+                <nav class="menu">
+                    <div class="logo1">
+                           <h2 href="http://127.0.0.1:8000/home"> Book Store </h2>                 
+                    </div>
+                    <div class="menu-area1">
+                        <ul>
+                            <a href="http://127.0.0.1:8000/home"><li>Home</li></a>
+                            <a href="http://127.0.0.1:8000/auteur"><li>Auteurs</li></a>
+                            <a href="http://127.0.0.1:8000/livre"><li>Livres</li></a>
+                            <a href="http://127.0.0.1:8000/genre"><li>Genres</li></a>
+                            <a href="http://127.0.0.1:8000/login"><li>Sign In</li></a>
+                            <a href="http://127.0.0.1:8000/register"><li>Sign Up</li></a>
+                        </ul>
+                    </div>
+                </nav>
+    </header>
+    <hr class="solid">
+<div class="container">
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="name" class="filter__link" href="#">Id</a></div>
+			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#"> Nom </a></div>
+			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Actions</a></div>
+
+		</div>
+		<div class="table-content">	
+       
+			<div class="table-row">		
+				<div class="table-data">{{genre.id}}</div>
+				<div class="table-data">{{genre.nom}}</div>
+				<div class="table-data"> <a href="{{ path('genre_index') }}"> Back to List </a></div>
+			</div>
+          <hr class="solid">
+		</div>	
+	</div>
+</div>
+
 {% endblock %}
