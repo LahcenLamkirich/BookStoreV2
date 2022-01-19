@@ -149,6 +149,7 @@ body {
     transition: 1s; 
 }
 
+
 @keyframes animation1 {
     from{
         width: 0;
@@ -163,3 +164,5 @@ body {
         border-color: transparent;
     } 50%{border-color: #fff}
 }
+
+
