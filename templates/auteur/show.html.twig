@@ -12,6 +12,7 @@
 
 body {
     background-color: #fff ;
+    color: black ;
 }
 
 .card {
@@ -26,9 +27,9 @@ body {
     transition: all 0.5s
 }
 
-.card:hover .image img {
+{# .card:hover .image img {
     transform: scale(1.5)
-}
+} #}
 
 .btn {
     height: 140px;
@@ -47,7 +48,9 @@ body {
 }
 
 .idd1 {
-    font-size: 12px
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
 }
 
 .number {
@@ -89,12 +92,18 @@ hr .new1 {
     color: #a0a0a0;
     font-weight: bold
 }
-
+.btn-secondary {
+    background-color: white ; 
+}
 .date {
     background-color: #ccc
 }
     hr.solid {
         border-top: 3px solid #bbb;
+    }
+
+    a {
+        color : white ; 
     }
 
 </style>
@@ -150,15 +159,18 @@ hr .new1 {
     {{ include('auteur/_delete_form.html.twig') }} #}
 
 
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3">Eleanor Pena</span> <span class="idd">@eleanorpena</span>
-            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">Oxc4c16a645_b21a</span> <span><i class="fa fa-copy"></i></span> </div>
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">1069 <span class="follow">Followers</span></span> </div>
-            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
-            <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+        <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+            <button class="btn-secondary"> 
+                <img src="/img/writer.png" height="100" width="100" />
+            </button> <span class="name mt-3">{{auteur.nomPrenom}}</span> 
+        <span class="idd">{{auteur.sexe}}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">{{ auteur.nationalite }}</span> <span><i class="fa fa-copy"></i></span> </div>
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark"> <a href="{{ path('auteur_index') }}">back to list</a>  </button> </div>
+            <div class="text mt-3"> {{auteur.nomPrenom}} is the creator or originator of any written work such as a book or play, and is also considered a writer or poet. <span><br><br> More broadly defined, an author is "the person who originated or gave existence to anything" and whose authorship determines responsibility for what was created</span> </div>
             <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
-            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+            <div class=" px-2 rounded mt-4 date "> <span class="join">{{ auteur.dateNaissance ? auteur.dateNaissance|date('Y-m-d') : '' }}</span> </div>
         </div>
     </div>
 </div>
