@@ -4,235 +4,163 @@
 
 {% block body %}
 <style>
-.abs,
-h2:after,
-.cards .card figcaption,
-.cards .card:after,
-.news .card figcaption,
-.news .card:after,
-.news .article figcaption {
-  position: absolute;
-}
-.rel,
-h2,
-h2 strong,
-.cards .card,
-.news .card,
-.news .article {
-  position: relative;
-}
-.fix {
-  position: fixed;
-}
-.dfix {
-  display: inline;
-}
-.dib {
-  display: inline-block;
-}
-.db {
-  display: block;
-}
-.dn {
-  display: none;
-}
-.df,
-.cards,
-.news {
-  display: flex;
-}
-.dif {
-  display: inline-flex;
-}
-.dg {
-  display: grid;
-}
-.dig {
-  display: inline-grid;
-}
-.vm,
-h2,
-h2 strong,
-h2 span {
-  vertical-align: middle;
-}
-body {
-  background: #24282f;
-  font-family: 'Alegreya Sans';
-}
-.wrapper {
-  padding: 15px;
-}
-h2 {
-  padding: 10px;
-  padding-left: 25px;
-  color: #ccc;
+
+  @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
 }
-h2 strong {
-  z-index: 2;
-  background: #24282f;
-  padding: 4px 8px;
-}
-h2 span {
-  font-size: 0.7em;
-  color: #aaa;
-  margin-left: 10px;
-}
-h2:after {
-  content: '';
-  z-index: 1;
-  bottom: 50%;
-  margin-bottom: -2px;
-  height: 2px;
-  left: 0;
-  right: 0;
-  background: #373d47;
-}
-.cards,
-.news {
-  flex-flow: row wrap;
-}
-.cards .card,
-.news .card {
-  margin: 20px;
-  width: 180px;
-  height: 270px;
-  overflow: hidden;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
-  transform-origin: center top;
-  transform-style: preserve-3d;
-  transform: translateZ(0);
-  transition: 0.3s;
-}
-.cards .card img,
-.news .card img {
-  width: 100%;
-  min-height: 100%;
-}
-.cards .card figcaption,
-.news .card figcaption {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  padding-bottom: 10px;
-  font-size: 20px;
-  background: none;
-  color: #fff;
-  transform: translateY(100%);
-  transition: 0.3s;
-}
-.cards .card:after,
-.news .card:after {
-  content: '';
-  z-index: 10;
-  width: 200%;
-  height: 100%;
-  top: -90%;
-  left: -20px;
-  opacity: 0.1;
-  transform: rotate(45deg);
-  background: linear-gradient(to top, transparent, #fff 15%, rgba(255,255,255,0.5));
-  transition: 0.3s;
-}
-.cards .card:hover,
-.news .card:hover,
-.cards .card:focus,
-.news .card:focus,
-.cards .card:active,
-.news .card:active {
-  box-shadow: 0 8px 16px 3px rgba(0,0,0,0.6);
-  transform: translateY(-3px) scale(1.05) rotateX(15deg);
-}
-.cards .card:hover figcaption,
-.news .card:hover figcaption,
-.cards .card:focus figcaption,
-.news .card:focus figcaption,
-.cards .card:active figcaption,
-.news .card:active figcaption {
-  transform: none;
-}
-.cards .card:hover:after,
-.news .card:hover:after,
-.cards .card:focus:after,
-.news .card:focus:after,
-.cards .card:active:after,
-.news .card:active:after {
-  transform: rotate(25deg);
-  top: -40%;
-  opacity: 0.15;
-}
-.news .article {
-  overflow: hidden;
-  width: 350px;
-  height: 235px;
-  margin: 20px;
-}
-.news .article img {
-  width: 100%;
-  min-height: 100%;
-  transition: 0.2s;
-}
-.news .article figcaption {
-  font-size: 14px;
-  text-shadow: 0 1px 0 rgba(51,51,51,0.3);
-  color: #fff;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 40px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
-  background: rgba(6,18,53,0.6);
-  opacity: 0;
-  transform: scale(1.15);
-  transition: 0.2s;
-}
-.news .article figcaption h3 {
-  color: #3792e3;
-  font-size: 16px;
-  margin-bottom: 0;
-  font-weight: bold;
-}
-.news .article:hover img,
-.news .article:focus img,
-.news .article:active img {
-  filter: blur(3px);
-  transform: scale(0.97);
-}
-.news .article:hover figcaption,
-.news .article:focus figcaption,
-.news .article:active figcaption {
-  opacity: 1;
-  transform: none;
+
+body {
+  font-family: "Quicksand", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: white;
+
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+  color: black ;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ECE9E6;
+background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+}
+
+
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #56CCF2;
+background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #D1913C;
+background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}
+  hr.solid {
+      border-bottom: 3px solid black;
+  }
 </style>
 
-<div class="wrapper">
 
-	<h2><strong> All Books <span>( 45 )</span></strong></h2>
+    <header class="banner1">
+                <nav class="menu">
+                    <div class="logo1">
+                           <h2 href="http://127.0.0.1:8000/home"> Book Store </h2>                 
+                    </div>
+                    <div class="menu-area1">
+                        <ul>
+                            <a href="http://127.0.0.1:8000/home"><li>Home</li></a>
+                            <a href="http://127.0.0.1:8000/auteur"><li>Auteurs</li></a>
+                            <a href="http://127.0.0.1:8000/livre"><li>Livres</li></a>
+                            <a href="http://127.0.0.1:8000/genre"><li>Genres</li></a>
+                            <a href="http://127.0.0.1:8000"><li>Sign In</li></a>
+                            <a href="http://127.0.0.1:8000/register"><li>Sign Up</li></a>
+                        </ul>
+                    </div>
+                </nav>
+    </header>
 
-	<div class="cards">
+<hr class="solid">
 
-        {% for livre in livres %}
-            {# <a href="{{ path('livre_edit', {'id': livre.id}) }}"> #}
-            <a  href="{{ path('livre_show', {'id': livre.id}) }}">
-                <figure class="card">
-                    <img src="/img/6.jpg" />
-                    <figcaption>
-                    <h3>{{livre.titre}}</h3>
-                    {{livre.getDateDeParution}}
-                    </figcaption>
-                </figure>
-            </a>
-        {% endfor %}
-
-	</div>
-
+<div class="container">
+{% for livre in livres %}  
+  <div class="card">
+    <div class="card__header">
+      <img src="/img/7.jpg" alt="card__image" class="card__image" width="600">
+    </div>
+    <div class="card__body">
+      <span class="tag tag-blue">Technology</span>
+      <h4>{{livre.titre}} || {{livre.getNote}} </h4>
+      <p>In {{livre.titre}} the Author tells the incredible story of her young life. How does a girl—abandoned by her mother at age two and orphaned at thirteen when her beloved father dies—find her place in the world? This memoir is the story of Nadia creating her own solid ground across countries and continents.</p>
+    </div>
+    <div class="card__footer">
+      <div class="user">
+        <div class="user__info">
+          <h5>{{livre.getDateDeParution}}</h5>
+          <small>{{livre.getNombrePages}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
 </div>
-
-</body>
 
 {% endblock %}
